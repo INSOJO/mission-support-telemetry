@@ -20,6 +20,22 @@ The system receives live telemetry packets, validates and stores them by mission
 The architecture is intentionally modular so prediction logic can later be replaced with machine-learning models without breaking API consumers.
 
 ---
+## Tech Stack
+### Backend
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Pydantic
+### Frontend
+- Vue
+- Vite
+- Leaflet
+### Infrastructure
+- Docker
+- Docker Compose
+### Language
+- Python
+- JavaScript
 
 ## Key Features
 
@@ -91,7 +107,26 @@ mission_support/
 └── .gitignore
 ```
 
-## Backend SetUp
+## Docker Setup
+From Project Root:
+```bash
+docker compose up --build
+```
+### Services available at:
+Backend Api:
+```bash
+http://127.0.0.1:8000
+```
+Interactive API docs
+```bash
+http://127.0.0.1:8000/docs
+```
+Frontend Dashboard
+```bash
+http://127.0.0.1:5173
+```
+
+## Backend Setup Without Docker
 ```bash
 cd backend
 python -m venv .venv
@@ -99,7 +134,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
-### Backend Avalaible at:
+### Backend Available at:
 ```cpp
 http://127.0.0.1:8000
 ```
@@ -107,7 +142,7 @@ http://127.0.0.1:8000
 ```cpp
 http://127.0.0.1:8000/docs
 ```
-## Frontend Setup
+## Frontend Setup Without Docker
 ```bash
 cd frontend
 npm install
@@ -162,6 +197,12 @@ Future plans include:
 
 ## Purpose
 This project is part of a mission-support toolkit focused on learning: backend engineering, telemetry pipelines, API validation & logging, SQL data modeling, Real-time visualization and Predictive system design 
+
+## Preview
+### Telemetry Dashboard
+![Telemetry Dashboard](docs/screenshots/dashboard.png)
+### FastAPI Interactive Docs
+![API Docs](docs/screenshots/api_docs.png)
 
 ## Dev
 Built and designed by John A. Cartegena Perez
